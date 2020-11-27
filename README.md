@@ -32,7 +32,7 @@ component{
   property name="ip" inject="ip@cfml-ip";
 
   any function myFancyFunction( ){
-    // creat a java class
+    
     var subnet = ip.subnet('192.168.0.1/24'); // or ip.subnet('192.168.0.1', '255.255.255.0')
     
     /*
