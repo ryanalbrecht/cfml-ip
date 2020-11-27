@@ -6,12 +6,14 @@ This is a helper library which will give you back information for a provided sub
 
 ```
 //inject ip helper
-property name="ip" inject="ip@ip"
+property name="ip" inject="ip@cfml-ip"
+
 ...
+
 //usage
-var subet = ip.subnet("192.168.0.1/24"); 
+var subnet = ip.subnet("192.168.0.1/24"); 
 // or another method signature:
-var subet = ip.subnet("192.168.0.1", "255.255.255.0");
+var subnet = ip.subnet("192.168.0.1", "255.255.255.0");
 
 /*
 subnet will equal:
@@ -27,6 +29,8 @@ subnet will equal:
   "allAddresses": [
     "192.168.0.1",
     "192.168.0.2",
+    ...
+    "192.168.0.253".
     "192.168.0.254"
   ],
   "contains": function(ipAddress){ }
@@ -34,8 +38,8 @@ subnet will equal:
 */
 
 //You can access a method called 'contains' on the returned structure to check if a give ip address in the subnet.
-var isInRange = subnet.container('192.168.0.4') //true
-var isInRange = subnet.container('192.168.2.9') //false
+var isInRange = subnet.contains('192.168.0.4') //true
+var isInRange = subnet.contains('192.168.2.9') //false
 ```
 
 This package uses the apache common net jar.
