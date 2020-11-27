@@ -15,6 +15,13 @@ component singleton {
 		}else{
 			var subnet = SubnetUtils.init(ipAddress).getInfo();
 		}
+
+		//convert java array to cfml array;
+		var allAddresses = [];
+		arrayMap(subnet.getAllAddresses(), function(ip){
+			allAddresses.append(ip);
+		});
+
 		
 		var r = structNew('Ordered');
 		r['address'] 			= subnet.getAddress();
@@ -25,7 +32,7 @@ component singleton {
 		r['cidrSignature'] 		= subnet.getCidrSignature();
 		r['firstAddress'] 		= subnet.getLowAddress();
 		r['lastAddress'] 		= subnet.getHighAddress();
-		r['allAddresses'] 		= subnet.getAllAddresses();
+		r['allAddresses'] 		= local.allAddresses;
 		r['contains'] 			= function(addr){
 				return subnet.isInRange(arguments.addr);
 		}
