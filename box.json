@@ -1,0 +1,39 @@
+{
+    "name":"cfml-ip",
+    "version":"0.0.0",
+    "author":"",
+    "location":"ryanalbrecht/cfml-ip#v0.0.0",
+    "homepage":"https://github.com/ryanalbrecht/cfml-ip",
+    "documentation":"https://github.com/ryanalbrecht/cfml-ip",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/ryanalbrecht/cfml-ip"
+    },
+    "bugs":"https://github.com/ryanalbrecht/cfml-ip/issues",
+    "slug":"ip",
+    "shortDescription":"Ip address and subnet helper library",
+    "description":"Ip address and subnet helper library",
+    "type":"modules",
+    "dependencies":{
+        "cbjavaloader":"^2.0.0+49"
+    },
+    "devDependencies":{
+        "coldbox":"^5.0.0",
+        "testbox":"^3.0.0"
+    },
+    "installPaths":{
+        "testbox":"testbox/",
+        "coldbox":"tests/resources/app/coldbox/",
+        "cbjavaloader":"modules/cbjavaloader/"
+    },
+    "scripts":{
+        "postVersion":"package set location='ryanalbrecht/ip#v`package version`'",
+        "onRelease":"publish",
+        "postPublish":"!git push && git push --tags"
+    },
+    "ignore":[
+        "**/.*",
+        "test",
+        "tests"
+    ]
+}
