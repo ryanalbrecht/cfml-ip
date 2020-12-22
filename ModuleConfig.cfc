@@ -10,7 +10,7 @@ component {
     function configure() {
         //javaloader settings
         settings = {
-        	libPath : modulePath & "/models/lib",
+        	libPath : modulePath & "/models/lib"
         }
     }
 
